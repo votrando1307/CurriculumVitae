@@ -67,9 +67,9 @@
             "github": "http://github"
         },
 		"surname": "Đô",
-		"National": "Vietnamese",
-		"Career": "Information technology",
-		"Email": "votrando1307@gmail"
+		"national": "Vietnamese",
+		"career": "Information technology",
+		"email": "votrando1307@gmail"
     },
     "projects": [{
         "description": "Using wifi-direct to connect with somebody who using this app which having name is uFriends. If you're using it then you chat and send file, picture.",
