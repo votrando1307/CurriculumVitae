@@ -1,0 +1,101 @@
+{
+    "certifications": [{
+        "issuer": "University of Economics Hồ Chí Minh city in VietNam",
+        "name": "business administration and business management certificate",
+        "url": "http://www.ueh.edu.vn/"
+    }, {
+        "issuer": "ETS center",
+        "name": "TOEFT ITP 450",
+        "url": "https://www.ets.org/toefl_itp"
+    }],
+    "education": [{
+        "degree": "Designer",
+        "field_of_study": "web and mobile",
+        "from_date": "2016-2-20",
+        "grade": "I'm in my third year",
+        "school_name": "University of Natural Sciences",
+        "to_date": "today"
+    }],
+    "experiences": [{
+        "company": {
+            "location": "VietNam",
+            "name": "Humana milk",
+            "url": "http://www.humana.com.vn/Page/Default.aspx"
+        },
+        "from_date": "2013-04-25",
+        "job_description": "Standing in the boot what in front of Humana store in Nguyen Thong Street, District 3, Ho Chi Minh city, introducing and consulting for customers about Humana's milk of products.",
+        "job_position": "Promotion Boy",
+        "to_date": "2014-10-18"
+    }, {
+        "company": {
+            "location": "VietNam",
+            "name": "Cổ và Cũ Shop",
+            "url": "http://vietgiftcenter.com/"
+        },
+        "from_date": "2015-3-20",
+        "job_description": "Consulting and selling products for customers, managing money and documents.",
+        "job_position": "Salesman",
+        "to_date": "2015-7-20"
+		
+    } , {
+	"company": {
+            "location": "VietNam",
+            "name": "Lạc Việt company",
+            "url": "http://www.lacviet.vn/"
+        },
+        "from_date": "2016-4-20",
+        "job_description": "Designing electronic lectures for customers.",
+        "job_position": "Designer",
+        "to_date": "today"
+		
+    }],
+    "languages": [{
+        "language": "English",
+        "level": "Toeft ITP 450"
+    }, {
+        "language": "Japanese",
+        "level": "1"
+    }],
+    "personal_informations": {
+        "name": "Võ Trần",
+        "phone_number": "096 296 8526",
+        "social_contacts": {
+            "twitter": "http://twitter",
+            "linkedin": "http://linkedin",
+            "skype": "http://skype",
+            "email": "mailto:#votrando1307@gmail.com",
+            "github": "http://github"
+        },
+		"surname": "Đô",
+		"National": "Vietnamese",
+		"Career": "Information technology",
+		"Email": "votrando1307@gmail"
+    },
+    "projects": [{
+        "description": "Using wifi-direct to connect with somebody who using this app which having name is uFriends. If you're using it then you chat and send file, picture.",
+        "from_date": "2016-3-20",
+        "name": "P2P for mobile",
+        "to_date": "today",
+        "url": "https://github.com/groupltm/uFriends.git"
+    }, {
+        "description": "buying tickets and looking up flight information.",
+        "from_date": "2015-04-3",
+        "name": "Flight management software",
+        "to_date": "2015-06-1",
+        "url": "https://github.com/groupltm/PhanMemQuanLyChuyenBay.git"
+    }],
+    "skills": [{
+        "level": "8",
+        "name": "C++"
+    }, {
+        "level": "7",
+        "name": "Angular.js"
+    }, {
+        "level": "5",
+        "name": "Java"
+    }, {
+        "level": "4",
+        "name": "HTML"
+    }],
+    "summary": "Currently, a student at the third year University of Natural Sciences. Three years in a row is pretty good student of the faculty. Very good sport (football). Available in English and Japanese."
+}
