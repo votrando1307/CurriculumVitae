@@ -43,7 +43,7 @@
             "name": "Lạc Việt company",
             "url": "http://www.lacviet.vn/"
         },
-        "from_date": "2016-4-20",
+        "from_date": "2016-1-20",
         "job_description": "Designing electronic lectures for customers.",
         "job_position": "Designer",
         "to_date": "today"
@@ -57,7 +57,7 @@
         "level": "1"
     }],
     "personal_informations": {
-        "name": "Võ Trần",
+        "name": "Võ Trần Đô",
         "phone_number": "(+84)96 296 8526",
         "social_contacts": {
             "twitter": "http://twitter",
@@ -66,7 +66,6 @@
             "email": "mailto:#votrando1307@gmail.com",
             "github": "http://github"
         },
-		"surname": "Đô",
 		"national": "Vietnamese",
 		"career": "Information technology",
 		"email": "votrando1307@gmail"

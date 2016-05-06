@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cv">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>VÕ TRẦN ĐÔ - Curriculum Vitae</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		
+		<script src="js/angular.js"></script>
+
+		<!-- x-editable (bootstrap version) -->
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+		
+		<!-- Angular modules -->
+		<script src="js/app.js"></script>
+		<script src="js/cvsections.js"></script>
+	</head>
+
+	<body ng-controller="CurriculumCtrl as cv">
+		<div class="container">
+		
+			<!-- Menu -->
+			<cv-menu></cv-menu>
+
+			<!-- Personal info -->
+			<section ng-show="cv.informations.personal_informations">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3><i class="fa fa-info-circle text-grey-color"></i> Personal Informations</h3>
+					</div>
+					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+						<img src="img/profilepicture.jpg" alt="profile picture" class="img-square img-responsive ">
+					</div>
+					
+					<!-- Name -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h2>Name:</h2>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h2>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">Name:</span> 
+								{{cv.informations.personal_informations.name}}					
+						<img ng-click="cv.infoName_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h2>
+					</div>						
+					<div ng-show="cv.infoName_editorEnabled">
+							<input ng-model="cv.infoName_editableTitle" ng-show="cv.infoName_editorEnabled" class="form-control">
+							<button ng-click="cv.infoName_save()">Save</button>
+							or
+							<button ng-click="cv.infoName_disableEditor()">Cancel</button>
+					</div>
+					
+					<!-- Current -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h3>Current:</h3>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h3>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">Current:</span> 
+							{{cv.position}}					
+						<img ng-click="cv.infoCurrent_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h3>
+					</div>						
+					<div ng-show="cv.infoCurrent_editorEnabled">
+							<input ng-model="cv.infoCurrent_editableTitle" ng-show="cv.infoCurrent_editorEnabled" class="form-control">
+							<button ng-click="cv.infoCurrent_save()">Save</button>
+							or
+							<button ng-click="cv.infoCurrent_disableEditor()">Cancel</button>
+					</div>
+					
+					<!-- Company -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h5>Company:</h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h5>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">Company:</span> 
+							<a href="{{cv.current_company_url}}" target="_blank"> {{cv.current_company_name}}</a>					
+						<img ng-click="cv.infoCompany_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h5>
+					</div>						
+					<div ng-show="cv.infoCompany_editorEnabled">
+							<input ng-model="cv.infoCompany_editableTitle" ng-show="cv.infoCompany_editorEnabled" class="form-control">
+							<button ng-click="cv.infoCompany_save()">Save</button>
+							or
+							<button ng-click="cv.infoCompany_disableEditor()">Cancel</button>
+					</div>
+					
+					<!-- Phone -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h5>Phone Number:</h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h5>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">Phone Number:</span> 
+							{{cv.informations.personal_informations.phone_number}}				
+						<img ng-click="cv.infoPhoneNumber_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h5>
+					</div>						
+					<div ng-show="cv.infoPhoneNumber_editorEnabled">
+							<input ng-model="cv.infoPhoneNumber_editableTitle" ng-show="cv.infoPhoneNumber_editorEnabled" class="form-control">
+							<button ng-click="cv.infoPhoneNumber_save()">Save</button>
+							or
+							<button ng-click="cv.infoPhoneNumber_disableEditor()">Cancel</button>
+					</div>
+					
+					<!-- Email -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h5>Email:</h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h5>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">Current:</span> 
+							{{cv.informations.personal_informations.email}}						
+						<img ng-click="cv.infoEmail_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h5>
+					</div>						
+					<div ng-show="cv.infoEmail_editorEnabled">
+							<input ng-model="cv.infoEmail_editableTitle" ng-show="cv.infoEmail_editorEnabled" class="form-control">
+							<button ng-click="cv.infoEmail_save()">Save</button>
+							or
+							<button ng-click="cv.infoEmail_disableEditor()">Cancel</button>
+					</div>
+					
+					<!-- Career -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h5>Career:</h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h5>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">Career:</span> 
+							 {{cv.informations.personal_informations.career}}						
+						<img ng-click="cv.infoCareer_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h5>
+					</div>						
+					<div ng-show="cv.infoCareer_editorEnabled">
+							<input ng-model="cv.infoCareer_editableTitle" ng-show="cv.infoCareer_editorEnabled" class="form-control">
+							<button ng-click="cv.infoCareer_save()">Save</button>
+							or
+							<button ng-click="cv.infoCareer_disableEditor()">Cancel</button>
+					</div>
+					
+					<!-- National -->
+					<div class="col-sm-2 col-md-2 col-lg-2 text-right text-grey-color hidden-xs">
+						<h5>National:</h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">		
+						<h5>
+							<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">National:</span> 
+							{{cv.informations.personal_informations.national}}							
+						<img ng-click="cv.infoNational_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+						</h5>
+					</div>						
+					<div ng-show="cv.infoNational_editorEnabled">
+							<input ng-model="cv.infoNational_editableTitle" ng-show="cv.infoNational_editorEnabled" class="form-control">
+							<button ng-click="cv.infoNational_save()">Save</button>
+							or
+							<button ng-click="cv.infoNational_disableEditor()">Cancel</button>
+					</div>
+					
+				</div>						
+			</section>
+			
+			<!-- Summary -->
+			<div class="row margin-top" ng-show="cv.informations.summary">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<h3 class="grey-border-text">Summary</h3>
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+					<div ng-hide="cv.summary_editorEnabled">
+						<p class="text-justify margin-top">
+							{{cv.informations.summary}}
+							<img ng-click="cv.summary_enableEditor()" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+						</p>
+					</div>
+					<div ng-show="cv.summary_editorEnabled">
+						<input ng-model="cv.summary_editableTitle" ng-show="cv.summary_editorEnabled" class="form-control">
+						<button ng-click="cv.summary_save()">Save</button>
+						or
+						<button ng-click="cv.summary_disableEditor()">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Work experiences -->
+			<div class="row background-grey-border" ng-show="cv.informations.experiences">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<h3 class="white-border-text">Experience</h3>
+				</div>
+				
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-12">
+					<div ng-hide="cv.ExpJob_AddEnabled">
+						<img ng-click="cv.ExpJob_AddEnable()" src="./img/Add-icon.png" alt="Add-icon" style="width:20px;"></img>
+					</div>
+					<div ng-show="cv.ExpJob_AddEnabled">
+						<span>Job: </span>
+						<input ng-model="cv.ExpJob_AddTitle" ng-show="cv.ExpJob_AddEnabled" class="form-control">
+						<span>Company Name: </span>
+						<input ng-model="cv.ExpSchool_AddTitle" ng-show="cv.ExpSchool_AddEnabled" class="form-control">
+						<span>Company Location: </span>
+						<input ng-model="cv.ExpLocation_AddTitle" ng-show="cv.ExpLocation_AddEnabled" class="form-control">
+						<span>From Date: </span>
+						<input ng-model="cv.ExpFromYear_AddTitle" ng-show="cv.ExpFromYear_AddEnabled" class="form-control">
+						<span>To Date: </span>
+						<input ng-model="cv.ExpToYear_AddTitle" ng-show="cv.ExpToYear_AddEnabled" class="form-control">
+						<span>Description: </span>
+						<input ng-model="cv.ExpDetail_AddTitle" ng-show="cv.ExpDetail_AddEnabled" class="form-control">
+						<button ng-click="cv.ExpJob_AddSave()">Save</button>
+						or
+						<button ng-click="cv.ExpJob_AddDisable()">Cancel</button>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-12" ng-repeat="exp in cv.informations.experiences | orderBy:'-to_date'">
+					<div ng-hide="cv.expJob_editorEnabled">
+						<h4>
+							{{exp.job}}
+							<img ng-click="cv.expJob_enableEditor(exp.job)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+						</h4>
+					</div>
+					<div ng-show="cv.expJob_editorEnabled">
+						<input ng-model="cv.expJob_editableTitle" ng-show="cv.expJob_editorEnabled" class="form-control">
+						<button ng-click="cv.expJob_save(exp)">Save</button>
+						or
+						<button ng-click="cv.expJob_disableEditor()">Cancel</button>
+					</div>
+					<div ng-hide="cv.expSchool_editorEnabled">
+						<p class="text-grey-color">
+							{{exp.company.name + " in " + exp.company.location}}
+							<img ng-click="cv.expSchool_enableEditor(exp.company)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+						</p>
+					</div>
+					<div ng-show="cv.expSchool_editorEnabled">
+						<span>Edit School: </span>
+						<input ng-model="cv.expSchool_editableTitle" ng-show="cv.expSchool_editorEnabled" class="form-control">
+						<span>Edit Location: </span>
+						<input ng-model="cv.expLocation_editableTitle" ng-show="cv.expLocation_editorEnabled" class="form-control">
+						<button ng-click="cv.expSchool_save(exp.company)">Save</button>
+						or
+						<button ng-click="cv.expSchool_disableEditor()">Cancel</button>
+					</div>
+					<div ng-hide="cv.expSchoolDetail_editorEnabled">
+						<p class="text-grey-color">
+							{{exp.from_date + " to " + exp.to_date + " | " + exp.job_description}}
+							<img ng-click="cv.expSchoolDetail_enableEditor(exp)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+						</p>
+					</div>
+					<div ng-show="cv.expSchoolDetail_editorEnabled">
+						<span>Edit Description: </span>
+						<input ng-model="cv.expSchoolDetail_editableTitle" ng-show="cv.expSchoolDetail_editorEnabled" class="form-control">
+						<span>Edit From Date: </span>
+						<input ng-model="cv.expDateFrom_editableTitle" ng-show="cv.expDateFrom_editorEnabled" class="form-control">
+						<span>Edit To Date: </span>
+						<input ng-model="cv.expDateTo_editableTitle" ng-show="cv.expDateTo_editorEnabled" class="form-control">
+						<button ng-click="cv.expSchoolDetail_save(exp)">Save</button>
+						or
+						<button ng-click="cv.expSchoolDetail_disableEditor()">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Projects -->
+			<div class="row" ng-show="cv.informations.projects">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<h3 class="grey-border-text">Projects</h3>
+				</div>
+				
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-12">
+					<div ng-hide="cv.PrjName_AddEnabled">
+						<img ng-click="cv.PrjName_AddEnable()" src="./img/Add-icon.png" alt="Add-icon" style="width:20px;"></img>
+					</div>
+					<div ng-show="cv.PrjName_AddEnabled">
+						<span>Name: </span>
+						<input ng-model="cv.PrjName_AddTitle" ng-show="cv.PrjName_AddEnabled" class="form-control">
+						<span>Description: </span>
+						<input ng-model="cv.PrjDetail_AddTitle" ng-show="cv.PrjDetail_AddEnabled" class="form-control">
+						<button ng-click="cv.PrjName_AddSave()">Save</button>
+						or
+						<button ng-click="cv.PrjName_AddDisable()">Cancel</button>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-repeat="project in cv.informations.projects | orderBy:'-to_date'">
+					<div ng-hide="cv.prjName_editorEnabled">
+						<h4>
+							{{project.name}}
+							<img ng-click="cv.prjName_enableEditor(project.name)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+						</h4>
+					</div>
+					<div ng-show="cv.prjName_editorEnabled">
+						<input ng-model="cv.prjName_editableTitle" ng-show="cv.prjName_editorEnabled" class="form-control">
+						<button ng-click="cv.prjName_save(project)">Save</button>
+						or
+						<button ng-click="cv.prjName_disableEditor()">Cancel</button>
+					</div>
+					<div ng-hide="cv.prjDetail_editorEnabled">
+						<p>
+							{{project.description}}
+							<img ng-click="cv.prjDetail_enableEditor(project.description)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+						</p>
+					</div>
+					<div ng-show="cv.prjDetail_editorEnabled">
+						<input ng-model="cv.prjDetail_editableTitle" ng-show="cv.prjDetail_editorEnabled" class="form-control">
+						<button ng-click="cv.prjDetail_save(project)">Save</button>
+						or
+						<button ng-click="cv.prjDetail_disableEditor()">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Skills -->
+			<div class="row background-grey-border" ng-show="cv.informations.skills">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<h3 class="white-border-text">Skills</h3>
+				</div>
+				
+				<div class="row" ng-repeat="skill in cv.informations.skills">
+					<div class="col-lg-12">
+						<div class="col-lg-1 text-align-center">
+							<h4>{{skill.name}}</h4>
+						</div>
+						<div class="col-lg-10">
+							<div ng-hide="cv.eduSchool_editorEnabled">
+								<h4 class="progress">
+									<span class="visible-xs-* hidden-sm hidden-md hidden-lg text-grey-color">{{skill.name}}</span> 
+									<div class="progress-bar" role="progressbar" aria-valuenow="{{skill.level * 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.level * 10}}%;">
+										{{skill.level * 10}}%
+									</div>
+							<img ng-click="cv.eduSchool_enableEditor(edu)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>	
+								</h4>
+							</div>
+							<div ng-show="cv.eduSchool_editorEnabled">
+								<span>Edit School: </span>
+								<input ng-model="cv.eduSchool_editableTitle" ng-show="cv.eduSchool_editorEnabled" class="form-control">
+								<span>Edit Location: </span>
+								<input ng-model="cv.eduLocation_editableTitle" ng-show="cv.eduLocation_editorEnabled" class="form-control">
+								<button ng-click="cv.eduSchool_save(edu)">Save</button>
+								or
+								<button ng-click="cv.eduSchool_disableEditor()">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Education -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<h3 class="grey-border-text">Education</h3>
+				</div>
+				
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-12">
+					<div ng-hide="cv.EduSchool_AddEnabled">
+						<img ng-click="cv.EduSchool_AddEnable()" src="./img/Add-icon.png" alt="Add-icon" style="width:20px;"></img>
+					</div>
+					<div ng-show="cv.EduSchool_AddEnabled">
+						<span>School: </span>
+						<input ng-model="cv.EduSchool_AddTitle" ng-show="cv.EduSchool_AddEnabled" class="form-control">
+						<span>Location: </span>
+						<input ng-model="cv.EduLocation_AddTitle" ng-show="cv.EduLocation_AddEnabled" class="form-control">
+						<span>Field of Study: </span>
+						<input ng-model="cv.EduDetail_AddTitle" ng-show="cv.EduDetail_AddEnabled" class="form-control">
+						<span>From Year: </span>
+						<input ng-model="cv.EduFromYear_AddTitle" ng-show="cv.EduFromYear_AddEnabled" class="form-control">
+						<span>To Year: </span>
+						<input ng-model="cv.EduToYear_AddTitle" ng-show="cv.EduToYear_AddEnabled" class="form-control">
+						<button ng-click="cv.EduSchool_AddSave()">Save</button>
+						or
+						<button ng-click="cv.EduSchool_AddDisable()">Cancel</button>
+					</div>
+				</div>
+				
+				<div class="row" ng-repeat="edu in cv.informations.education | orderBy:'-to_date'">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div ng-hide="cv.eduSchool_editorEnabled">
+							<h4>
+								{{edu.school_name + ' | ' + edu.place}}
+								<img ng-click="cv.eduSchool_enableEditor(edu)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+							</h4>
+						</div>
+						<div ng-show="cv.eduSchool_editorEnabled">
+							<span>Edit School: </span>
+							<input ng-model="cv.eduSchool_editableTitle" ng-show="cv.eduSchool_editorEnabled" class="form-control">
+							<span>Edit Location: </span>
+							<input ng-model="cv.eduLocation_editableTitle" ng-show="cv.eduLocation_editorEnabled" class="form-control">
+							<button ng-click="cv.eduSchool_save(edu)">Save</button>
+							or
+							<button ng-click="cv.eduSchool_disableEditor()">Cancel</button>
+						</div>
+						<div ng-hide="cv.eduDetail_editorEnabled">
+							<p class="text-grey-color">
+								{{edu.field_of_study}}
+								<img ng-click="cv.eduDetail_enableEditor(edu)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+							</p>
+						</div>
+						<div ng-show="cv.eduDetail_editorEnabled">
+							<input ng-model="cv.eduDetail_editableTitle" ng-show="cv.eduDetail_editorEnabled" class="form-control">
+							<button ng-click="cv.eduDetail_save(edu)">Save</button>
+							or
+							<button ng-click="cv.eduDetail_disableEditor()">Cancel</button>
+						</div>
+						<div ng-hide="cv.eduDateFrom_editorEnabled">
+							<p class="text-grey-color">
+								{{edu.fromyear + " - " + edu.toyear}}
+								<img ng-mousedown="cv.eduDateFrom_enableEditor(edu)" src="./img/Edit-icon.png" alt="Edit-icon" style="width:20px;"></img>
+							</p>
+						</div>
+						<div ng-show="cv.eduDateFrom_editorEnabled">
+							<span>Edit From Date: </span>
+							<input ng-model="cv.eduDateFrom_editableTitle" ng-show="cv.eduDateFrom_editorEnabled" class="form-control">
+							<span>Edit To Date: </span>
+							<input ng-model="cv.eduDateTo_editableTitle" ng-show="cv.eduDateTo_editorEnabled" class="form-control">
+							<button ng-click="cv.eduDateFrom_save(edu)">Save</button>
+							or
+							<button ng-click="cv.eduDateFrom_disableEditor()">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Social contacts -->
+			<hr>
+			<cv-social-contacts></cv-social-contacts>
+		</div>
+	</body>
+</html>
